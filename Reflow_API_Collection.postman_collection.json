@@ -755,7 +755,7 @@
             },
             "description": "Check API health status"
           },
-          "response": []
+          "response": [] 
         },
         {
           "name": "API Root",

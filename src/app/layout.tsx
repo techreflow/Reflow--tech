@@ -97,7 +97,6 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <AuthProvider>
-          <PageLoader />
           <Header />
           <main
             className="pt-20"

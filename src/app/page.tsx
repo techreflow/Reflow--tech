@@ -1,5 +1,4 @@
 import Hero from './components/Hero';
-import Features from './components/Features';
 import Services from './components/Services';
 import OurProduct from './components/OurProduct';
 import FAQ from './components/FAQ';
@@ -8,7 +7,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Hero />
-      <Features />
       <Services />
       <OurProduct />
       <FAQ />

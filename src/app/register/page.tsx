@@ -85,7 +85,6 @@ export default function RegisterPage() {
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden">
-      <Header />
       <div className="flex items-center justify-center p-4 pt-32">
         <div className="absolute inset-0 overflow-hidden">
           <motion.div 

@@ -195,62 +195,7 @@ export default function Hero() {
           ease: "easeInOut",
         }}
       />
-      <motion.div
-        className="absolute top-0 left-0 right-0 h-24 z-5"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(0, 179, 255, 0.08) 0%, rgba(56, 217, 255, 0.12) 50%, rgba(0, 179, 255, 0.08) 100%)",
-        }}
-        animate={{
-          x: [0, 50, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-20"
-          style={{ backgroundColor: "var(--color-surface-muted)" }}
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 rounded-full opacity-15"
-          style={{ backgroundColor: "var(--color-accent)" }}
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full opacity-10"
-          style={{ backgroundColor: "var(--color-primary)" }}
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
+
       <div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
         style={{ fontFamily: "var(--font-poppins-bold)" }}
@@ -266,12 +211,7 @@ export default function Hero() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-6"
               style={{ color: "var(--color-primary)" }}
             >
-              <TypingAnimation
-                text="ReFlow Console"
-                speed={100}
-                delay={300}
-                loop={false}
-              />
+              ReFlow Console
             </motion.h1>
             <motion.h2
               className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-4 font-normal"

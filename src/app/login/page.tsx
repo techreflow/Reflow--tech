@@ -1,4 +1,4 @@
-'use client';
+"use client";
 // import { motion } from 'framer-motion';
 // import Image from 'next/image';
 // import Link from 'next/link';
@@ -8,13 +8,13 @@
 
 export default function LoginPage() {
   // Temporary redirect to external login page
-  if (typeof window !== 'undefined') {
-    window.location.href = 'https://login.reflowtech.in/login';
+  if (typeof window !== "undefined") {
+    window.location.href = "https://login.reflowtech.in/login";
     return null;
   }
-  
+
   return null;
-  
+
   /* COMMENTED OUT - TEMPORARY
   const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
@@ -23,11 +23,11 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden">
+    <div className="min-h-screen bg-linear-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden">
       <div className="flex items-center justify-center p-4 pt-32">
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-20 right-20 w-[600px] h-[600px] bg-gradient-to-br from-blue-400/30 to-blue-600/30 rounded-full blur-3xl"
+          className="absolute top-20 right-20 w-[600px] h-[600px] bg-linear-to-br from-blue-400/30 to-blue-600/30 rounded-full blur-3xl"
           animate={{ 
             scale: [1, 1.2, 1],
             rotate: [0, 90, 0],
@@ -37,7 +37,7 @@ export default function LoginPage() {
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-20 left-20 w-[700px] h-[700px] bg-gradient-to-br from-blue-300/20 to-blue-500/20 rounded-full blur-3xl"
+          className="absolute bottom-20 left-20 w-[700px] h-[700px] bg-linear-to-br from-blue-300/20 to-blue-500/20 rounded-full blur-3xl"
           animate={{ 
             scale: [1.2, 1, 1.2],
             rotate: [0, -90, 0],
@@ -59,19 +59,19 @@ export default function LoginPage() {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-400/10 to-transparent rounded-bl-full"></div>
+          <div className="absolute top-0 right-0 w-40 h-40 bg-linear-to-br from-blue-400/10 to-transparent rounded-bl-full"></div>
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
             <h1 className="text-4xl lg:text-5xl font-black mb-3 relative">
-              <span className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-600 via-blue-700 to-blue-900 bg-clip-text text-transparent">
                 Login
               </span>
             </h1>
             <motion.div 
-              className="h-1.5 w-20 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mb-6"
+              className="h-1.5 w-20 bg-linear-to-r from-blue-600 to-blue-400 rounded-full mb-6"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.6, duration: 0.6 }}
@@ -188,7 +188,7 @@ export default function LoginPage() {
             <motion.button
               type="submit"
               disabled={loading}
-              className={`w-full bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden group ${
+              className={`w-full bg-linear-to-r from-blue-600 via-blue-700 to-blue-800 text-white py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden group ${
                 loading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               initial={{ y: 20, opacity: 0 }}
@@ -198,7 +198,7 @@ export default function LoginPage() {
               whileTap={!loading ? { scale: 0.98 } : {}}
             >
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent"
+                className="absolute inset-0 bg-linear-to-r from-blue-400/20 to-transparent"
                 animate={{ x: [-100, 400] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               />
@@ -245,7 +245,7 @@ export default function LoginPage() {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-blue-400/10 to-transparent rounded-tr-full"></div>
+            <div className="absolute bottom-0 left-0 w-40 h-40 bg-linear-to-tr from-blue-400/10 to-transparent rounded-tr-full"></div>
             <motion.p 
               className="text-2xl font-bold text-gray-800 mb-8"
               initial={{ y: 20, opacity: 0 }}

@@ -1,49 +1,57 @@
-'use client';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { signupUser } from '@/lib/auth';
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { signupUser } from "@/lib/auth";
 export default function RegisterPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    companyName: '',
-    contactNumber: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    companyName: "",
+    contactNumber: "",
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
     if (error) setError(null);
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.password || !formData.companyName || !formData.contactNumber) {
-      setError('All fields are required');
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.password ||
+      !formData.companyName ||
+      !formData.contactNumber
+    ) {
+      setError("All fields are required");
       return;
     }
     if (formData.password.length < 6) {
-      setError('Password must be at least 6 characters long');
+      setError("Password must be at least 6 characters long");
       return;
     }
-    const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/;
-    if (!phoneRegex.test(formData.contactNumber.replace(/\s/g, ''))) {
-      setError('Please enter a valid contact number');
+    const phoneRegex =
+      /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/;
+    if (!phoneRegex.test(formData.contactNumber.replace(/\s/g, ""))) {
+      setError("Please enter a valid contact number");
       return;
     }
     setLoading(true);
     try {
       const fullName = `${formData.firstName} ${formData.lastName}`.trim();
-      console.log('Attempting registration with:', {
+      console.log("Attempting registration with:", {
         name: fullName,
         email: formData.email,
         companyName: formData.companyName,
@@ -55,55 +63,56 @@ export default function RegisterPage() {
         password: formData.password,
         contactNumber: formData.contactNumber.trim(),
       });
-      console.log('Registration response:', {
+      console.log("Registration response:", {
         success: result.success,
         status: result.status,
         error: result.error,
       });
       if (result.success) {
-        router.push('/login?registered=true');
+        router.push("/login?registered=true");
       } else {
-        const errorMsg = result.error || 
-          (result.status === 400 
-            ? 'Invalid registration data. Please check your information.' 
+        const errorMsg =
+          result.error ||
+          (result.status === 400
+            ? "Invalid registration data. Please check your information."
             : result.status === 409
-            ? 'An account with this email already exists. Please login instead.'
-            : 'Registration failed. Please try again.');
+            ? "An account with this email already exists. Please login instead."
+            : "Registration failed. Please try again.");
         setError(errorMsg);
-        console.error('Registration failed:', {
+        console.error("Registration failed:", {
           status: result.status,
           error: result.error,
           response: result,
         });
       }
     } catch (err) {
-      setError('An unexpected error occurred. Please try again.');
-      console.error('Registration error:', err);
+      setError("An unexpected error occurred. Please try again.");
+      console.error("Registration error:", err);
     } finally {
       setLoading(false);
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden">
+    <div className="min-h-screen bg-linear-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden">
       <div className="flex items-center justify-center p-4 pt-32">
         <div className="absolute inset-0 overflow-hidden">
-          <motion.div 
-            className="absolute top-20 right-20 w-[600px] h-[600px] bg-gradient-to-br from-blue-400/30 to-blue-600/30 rounded-full blur-3xl"
-            animate={{ 
+          <motion.div
+            className="absolute top-20 right-20 w-[600px] h-[600px] bg-linear-to-br from-blue-400/30 to-blue-600/30 rounded-full blur-3xl"
+            animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 90, 0],
               x: [0, 50, 0],
-              y: [0, 30, 0]
+              y: [0, 30, 0],
             }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           />
-          <motion.div 
-            className="absolute bottom-20 left-20 w-[700px] h-[700px] bg-gradient-to-br from-blue-300/20 to-blue-500/20 rounded-full blur-3xl"
-            animate={{ 
+          <motion.div
+            className="absolute bottom-20 left-20 w-[700px] h-[700px] bg-linear-to-br from-blue-300/20 to-blue-500/20 rounded-full blur-3xl"
+            animate={{
               scale: [1.2, 1, 1.2],
               rotate: [0, -90, 0],
               x: [0, -30, 0],
-              y: [0, -50, 0]
+              y: [0, -50, 0],
             }}
             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -209,13 +218,38 @@ export default function RegisterPage() {
                     className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 transition-colors"
                   >
                     {showPassword ? (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
                       </svg>
                     ) : (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
+                        />
                       </svg>
                     )}
                   </button>
@@ -263,7 +297,7 @@ export default function RegisterPage() {
                 type="submit"
                 disabled={loading}
                 className={`w-full bg-black text-white py-4 px-6 rounded-lg font-semibold text-base shadow-lg hover:bg-gray-900 transition-all duration-300 flex items-center justify-center gap-2 ${
-                  loading ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
+                  loading ? "opacity-50 cursor-not-allowed" : "hover:shadow-xl"
                 }`}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -273,17 +307,43 @@ export default function RegisterPage() {
               >
                 {loading ? (
                   <>
-                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg
+                      className="animate-spin h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
                     Registering...
                   </>
                 ) : (
                   <>
                     Register
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
                     </svg>
                   </>
                 )}
@@ -294,8 +354,11 @@ export default function RegisterPage() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.9 }}
               >
-                Already have an account?{' '}
-                <Link href="/login" className="text-blue-600 hover:text-blue-700 font-semibold hover:underline transition-all">
+                Already have an account?{" "}
+                <Link
+                  href="/login"
+                  className="text-blue-600 hover:text-blue-700 font-semibold hover:underline transition-all"
+                >
                   Login
                 </Link>
               </motion.p>
@@ -308,12 +371,22 @@ export default function RegisterPage() {
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          <Link 
+          <Link
             href="/"
             className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-all group"
           >
-            <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <svg
+              className="w-5 h-5 group-hover:-translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             Back to Home
           </Link>

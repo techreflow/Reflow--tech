@@ -375,7 +375,7 @@ export default function Services() {
           >
             <div
               ref={videoContainerRef}
-              className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-black border-2 border-gray-700/50 group"
+              className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-linear-to-br from-gray-900 via-gray-800 to-black border-2 border-gray-700/50 group"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               style={{
@@ -411,10 +411,10 @@ export default function Services() {
                   </div>
                 </div>
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-black/20 pointer-events-none"></div>
               <div
-                className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                className="absolute inset-0 rounded-2xl bg-linear-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
                   background:
                     "linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent)",
@@ -428,7 +428,7 @@ export default function Services() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"
+                    className="absolute inset-0 flex flex-col justify-end p-4 bg-linear-to-t from-black/80 via-black/40 to-transparent z-10"
                   >
                     <div
                       ref={progressBarRef}
@@ -436,7 +436,7 @@ export default function Services() {
                       onClick={handleProgressClick}
                     >
                       <motion.div
-                        className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full relative overflow-hidden"
+                        className="h-full bg-linear-to-r from-blue-500 to-blue-600 rounded-full relative overflow-hidden"
                         style={{ width: `${progress}%` }}
                         initial={{ width: 0 }}
                         animate={{ width: `${progress}%` }}

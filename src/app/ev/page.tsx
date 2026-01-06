@@ -1,15 +1,22 @@
-'use client';
-import { Suspense, useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
-import { motion } from 'framer-motion';
-import Footer from '../components/Footer';
-import * as THREE from 'three';
-function FloatingParticle({ position, index }: { position: [number, number, number]; index: number }) {
+"use client";
+import { Suspense, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
+import { motion } from "framer-motion";
+import Footer from "../components/Footer";
+import * as THREE from "three";
+function FloatingParticle({
+  position,
+  index,
+}: {
+  position: [number, number, number];
+  index: number;
+}) {
   const meshRef = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.position.y += Math.sin(state.clock.elapsedTime + index) * 0.001;
+      meshRef.current.position.y +=
+        Math.sin(state.clock.elapsedTime + index) * 0.001;
       meshRef.current.rotation.x += 0.01;
       meshRef.current.rotation.y += 0.01;
     }
@@ -124,12 +131,12 @@ function EVScene() {
 }
 export default function EVPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden">
+    <div className="min-h-screen bg-linear-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden">
       <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center pt-24 pb-16">
         <div className="absolute inset-0 w-full h-full z-0">
           <Canvas
             camera={{ position: [0, 0, 8], fov: 75 }}
-            style={{ background: 'transparent' }}
+            style={{ background: "transparent" }}
           >
             <EVScene />
           </Canvas>
@@ -140,7 +147,7 @@ export default function EVPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            style={{ color: '#0083e6' }}
+            style={{ color: "#0083e6" }}
           >
             Coming Soon
           </motion.h1>

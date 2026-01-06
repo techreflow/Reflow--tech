@@ -6,16 +6,24 @@ export default function Footer() {
     <footer
       className="relative overflow-hidden"
       style={{
-        backgroundColor: "var(--color-background)",
         color: "var(--color-text-primary)",
+        background:
+          "linear-gradient(180deg, var(--color-background) 0%, var(--color-surface-muted) 50%, var(--color-surface-hover) 100%)",
       }}
     >
-      <div className="absolute inset-0 opacity-10">
+      {/* Professional gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 via-transparent to-[var(--color-accent)]/3"></div>
+
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.03]">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300B3FF' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: "repeat",
+            backgroundImage: `
+              linear-gradient(var(--color-primary) 1px, transparent 1px),
+              linear-gradient(90deg, var(--color-primary) 1px, transparent 1px)
+            `,
+            backgroundSize: "40px 40px",
           }}
         ></div>
       </div>
@@ -313,13 +321,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div
-        className="border-t py-8"
-        style={{
-          borderColor: "var(--color-border-subtle)",
-          backgroundColor: "var(--color-surface-muted)",
-        }}
-      >
+      <div className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div
@@ -343,28 +345,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="fixed bottom-6 right-6 z-50">
-        <button
-          className="w-16 h-16 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
-          style={{
-            background:
-              "linear-gradient(135deg, var(--color-primary), var(--color-accent))",
-            borderColor: "var(--color-border-subtle)",
-            border: "2px solid",
-          }}
-          title="Scroll to top"
-          aria-label="Scroll to top"
-        >
-          <svg
-            className="w-7 h-7 group-hover:rotate-12 transition-transform duration-300"
-            style={{ color: "var(--color-text-inverse)" }}
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-          </svg>
-        </button>
       </div>
     </footer>
   );

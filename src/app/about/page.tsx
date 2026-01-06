@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Footer from "../components/Footer";
 import {
   FaIndustry,
@@ -76,15 +75,15 @@ export default function AboutPage() {
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center justify-center min-h-[400px] lg:min-h-[600px]">
+          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-center justify-center min-h-[300px] sm:min-h-[400px] lg:min-h-[600px]">
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full lg:w-[45%] flex justify-center"
+              className="relative w-full lg:w-[45%] flex justify-center order-2 lg:order-1"
             >
               <motion.div
-                className="rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden w-full"
+                className="rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl relative overflow-hidden w-full max-w-md lg:max-w-none"
                 style={{
                   backgroundColor: "var(--color-surface)",
                   borderColor: "var(--color-border-subtle)",
@@ -94,7 +93,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.3 }}
               >
                 <motion.svg
-                  className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 opacity-20"
+                  className="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 opacity-20"
                   viewBox="0 0 100 100"
                   initial={{ rotate: 0 }}
                   animate={{ rotate: 360 }}
@@ -113,7 +112,7 @@ export default function AboutPage() {
                   />
                 </motion.svg>
                 <motion.svg
-                  className="absolute bottom-0 left-0 w-32 h-32 sm:w-40 sm:h-40 opacity-20"
+                  className="absolute bottom-0 left-0 w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 opacity-20"
                   viewBox="0 0 100 100"
                   initial={{ rotate: 0 }}
                   animate={{ rotate: -360 }}
@@ -132,7 +131,7 @@ export default function AboutPage() {
                   />
                 </motion.svg>
                 <motion.h1
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 relative z-10 leading-tight"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 relative z-10 leading-tight text-center lg:text-left"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4 }}
@@ -141,14 +140,13 @@ export default function AboutPage() {
                     We Automate
                   </div>
                   <div
+                    className="break-words"
                     style={{
                       background:
                         "linear-gradient(to right, var(--color-primary), var(--color-accent))",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
-                      wordBreak: "keep-all",
-                      whiteSpace: "nowrap",
                     }}
                   >
                     Industries
@@ -160,30 +158,15 @@ export default function AboutPage() {
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="space-y-6 lg:space-y-8 w-full lg:w-[45%]"
+              className="space-y-6 lg:space-y-8 w-full lg:w-[45%] order-1 lg:order-2"
             >
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                <motion.div
-                  className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-4 lg:mb-6 shadow-lg"
-                  style={{
-                    background:
-                      "linear-gradient(to right, var(--color-primary), var(--color-accent))",
-                    color: "var(--color-text-inverse)",
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <span
-                    className="w-2 h-2 rounded-full mr-2 animate-pulse"
-                    style={{ backgroundColor: "var(--color-text-inverse)" }}
-                  ></span>
-                  About Us
-                </motion.div>
                 <h2
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 lg:mb-6 break-words"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 lg:mb-6 break-words text-center lg:text-left"
                   style={{ color: "var(--color-primary)" }}
                 >
                   About Us
@@ -289,48 +272,25 @@ export default function AboutPage() {
                   </p>
                 </motion.div>
               </motion.div>
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.8 }}
-              >
-                <Link href="/contact">
-                  <motion.button
-                    className="w-full lg:w-auto px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300"
-                    style={{
-                      background:
-                        "linear-gradient(to right, var(--color-primary), var(--color-primary-hover))",
-                      color: "var(--color-text-inverse)",
-                    }}
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 20px 40px rgba(0, 163, 255, 0.4)",
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Contact Us
-                  </motion.button>
-                </Link>
-              </motion.div>
             </motion.div>
           </div>
         </div>
       </motion.section>
       <motion.section
-        className="py-16 relative"
+        className="py-12 sm:py-16 relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {stats.map((stat, idx) => {
               const IconComponent = stat.icon;
               return (
                 <motion.div
                   key={idx}
-                  className="rounded-3xl p-8 shadow-xl text-center"
+                  className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl text-center"
                   style={{
                     backgroundColor: "var(--color-surface)",
                     borderColor: "var(--color-border-subtle)",
@@ -343,21 +303,21 @@ export default function AboutPage() {
                   whileHover={{ scale: 1.05, y: -10 }}
                 >
                   <motion.div
-                    className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg"
                     style={{
                       background:
                         "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-hover))",
                     }}
-                    whileHover={{ rotate: 360 }}
+                    whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
                     <IconComponent
-                      className="text-3xl"
+                      className="text-2xl sm:text-3xl"
                       style={{ color: "var(--color-text-inverse)" }}
                     />
                   </motion.div>
                   <motion.h3
-                    className="text-4xl font-black mb-2"
+                    className="text-3xl sm:text-4xl font-black mb-2"
                     style={{ color: "var(--color-text-primary)" }}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
@@ -367,7 +327,7 @@ export default function AboutPage() {
                     {stat.number}
                   </motion.h3>
                   <p
-                    className="text-lg font-semibold"
+                    className="text-base sm:text-lg font-semibold break-words"
                     style={{ color: "var(--color-text-secondary)" }}
                   >
                     {stat.label}
@@ -379,7 +339,7 @@ export default function AboutPage() {
         </div>
       </motion.section>
       <motion.section
-        className="py-16 pb-24 relative"
+        className="py-12 sm:py-16 pb-16 sm:pb-24 relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -387,13 +347,13 @@ export default function AboutPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-5xl lg:text-6xl font-black mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 break-words">
               <span
                 style={{
                   background:
@@ -407,7 +367,7 @@ export default function AboutPage() {
               </span>
             </h2>
             <motion.div
-              className="h-1.5 w-40 rounded-full mx-auto"
+              className="h-1.5 w-32 sm:w-40 rounded-full mx-auto"
               style={{
                 background:
                   "linear-gradient(to right, var(--color-primary), var(--color-accent))",
@@ -418,13 +378,13 @@ export default function AboutPage() {
               transition={{ delay: 0.3, duration: 0.8 }}
             />
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {values.map((value, idx) => {
               const IconComponent = value.icon;
               return (
                 <motion.div
                   key={idx}
-                  className="rounded-3xl p-8 shadow-xl relative overflow-hidden group"
+                  className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden group"
                   style={{
                     backgroundColor: "var(--color-surface)",
                     borderColor: "var(--color-border-subtle)",
@@ -437,7 +397,7 @@ export default function AboutPage() {
                   whileHover={{ scale: 1.05, y: -10 }}
                 >
                   <motion.div
-                    className="absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl"
+                    className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 rounded-full blur-2xl"
                     style={{
                       background:
                         "linear-gradient(to bottom right, var(--color-primary), transparent)",
@@ -450,27 +410,27 @@ export default function AboutPage() {
                     transition={{ duration: 3, repeat: Infinity }}
                   />
                   <motion.div
-                    className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-lg relative z-10"
+                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg relative z-10"
                     style={{
                       background:
                         "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-hover))",
                     }}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
                     <IconComponent
-                      className="text-2xl"
+                      className="text-xl sm:text-2xl"
                       style={{ color: "var(--color-text-inverse)" }}
                     />
                   </motion.div>
                   <h3
-                    className="text-2xl font-black mb-4 relative z-10"
+                    className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 relative z-10 break-words"
                     style={{ color: "var(--color-text-primary)" }}
                   >
                     {value.title}
                   </h3>
                   <p
-                    className="leading-relaxed relative z-10"
+                    className="text-sm sm:text-base leading-relaxed relative z-10 break-words"
                     style={{ color: "var(--color-text-secondary)" }}
                   >
                     {value.description}

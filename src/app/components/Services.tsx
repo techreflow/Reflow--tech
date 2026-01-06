@@ -1,9 +1,9 @@
-'use client';
-import { useEffect, useRef, useState } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-if (typeof window !== 'undefined') {
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 export default function Services() {
@@ -45,15 +45,15 @@ export default function Services() {
         setCurrentTime(video.currentTime);
       }
     };
-    video.addEventListener('timeupdate', updateProgress);
-    video.addEventListener('loadeddata', () => setIsLoading(false));
-    video.addEventListener('play', () => setIsPlaying(true));
-    video.addEventListener('pause', () => setIsPlaying(false));
+    video.addEventListener("timeupdate", updateProgress);
+    video.addEventListener("loadeddata", () => setIsLoading(false));
+    video.addEventListener("play", () => setIsPlaying(true));
+    video.addEventListener("pause", () => setIsPlaying(false));
     return () => {
-      video.removeEventListener('timeupdate', updateProgress);
-      video.removeEventListener('loadeddata', () => setIsLoading(false));
-      video.removeEventListener('play', () => setIsPlaying(true));
-      video.removeEventListener('pause', () => setIsPlaying(false));
+      video.removeEventListener("timeupdate", updateProgress);
+      video.removeEventListener("loadeddata", () => setIsLoading(false));
+      video.removeEventListener("play", () => setIsPlaying(true));
+      video.removeEventListener("pause", () => setIsPlaying(false));
     };
   }, []);
   useEffect(() => {
@@ -79,7 +79,8 @@ export default function Services() {
     if (videoElementRef.current && progressBarRef.current) {
       const rect = progressBarRef.current.getBoundingClientRect();
       const percent = (e.clientX - rect.left) / rect.width;
-      videoElementRef.current.currentTime = percent * videoElementRef.current.duration;
+      videoElementRef.current.currentTime =
+        percent * videoElementRef.current.duration;
     }
   };
   const toggleFullscreen = () => {
@@ -98,67 +99,82 @@ export default function Services() {
         y: 50,
         opacity: 0,
         duration: 0.8,
-        ease: "power2.out"
+        ease: "power2.out",
       })
-      .from(paragraph1Ref.current, {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }, "-=0.4")
-      .from(paragraph2Ref.current, {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }, "-=0.3")
-      .from(buttonRef.current, {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.out"
-      }, "-=0.2");
+        .from(
+          paragraph1Ref.current,
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+        .from(
+          paragraph2Ref.current,
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.3"
+        )
+        .from(
+          buttonRef.current,
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        );
     }
   }, [isInView]);
   return (
-    <motion.section 
+    <motion.section
       ref={sectionRef}
-      id="services" 
-      className="py-16 bg-gradient-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden"
+      id="services"
+      className="py-16 relative overflow-hidden"
+      style={{ backgroundColor: "var(--color-background)" }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute top-10 right-10 w-64 h-64 bg-blue-200 rounded-full opacity-15"
-          animate={{ 
+        <motion.div
+          className="absolute top-10 right-10 w-64 h-64 rounded-full opacity-15"
+          style={{ backgroundColor: "var(--color-surface-muted)" }}
+          animate={{
             scale: [1, 1.1, 1],
-            rotate: [0, 90, 0]
+            rotate: [0, 90, 0],
           }}
-          transition={{ 
+          transition={{
             duration: 15,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
         />
-        <motion.div 
-          className="absolute bottom-10 left-10 w-80 h-80 bg-blue-300 rounded-full opacity-10"
-          animate={{ 
+        <motion.div
+          className="absolute bottom-10 left-10 w-80 h-80 rounded-full opacity-10"
+          style={{ backgroundColor: "var(--color-accent)" }}
+          animate={{
             scale: [1.1, 1, 1.1],
-            rotate: [0, -90, 0]
+            rotate: [0, -90, 0],
           }}
-          transition={{ 
+          transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
         />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <motion.div 
+          <motion.div
             ref={textRef}
             className="space-y-6 lg:col-span-5 mb-8 lg:mb-0"
             initial={{ opacity: 0, x: -50 }}
@@ -166,95 +182,190 @@ export default function Services() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <motion.h2 
+            <motion.h2
               ref={titleRef}
               className="text-4xl lg:text-5xl font-black leading-tight mb-4"
-              style={{ fontFamily: 'var(--font-poppins-bold)', color: '#0083e6' }}
+              style={{
+                fontFamily: "var(--font-poppins-bold)",
+                color: "var(--color-primary)",
+              }}
               whileHover={{ scale: 1.05, rotate: 1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <span className="block">Services</span>
-              <motion.div 
+              <motion.div
                 className="w-24 h-1 rounded-full mt-4"
-                style={{ backgroundColor: '#0083e6' }}
+                style={{ backgroundColor: "var(--color-primary)" }}
                 initial={{ width: 0 }}
                 whileInView={{ width: "6rem" }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               />
             </motion.h2>
-            <motion.div 
+            <motion.div
               ref={paragraph1Ref}
               className="relative"
               whileHover={{ x: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-300 rounded-full"></div>
-              <p className="text-base lg:text-lg text-gray-800 leading-relaxed font-medium pl-6">
-                <span className="text-blue-600 font-bold">Use data</span> to increase yield, make production faster, and cheaper with fewer resources than ever before. 
-                <span className="text-blue-700 font-semibold"> ReFlowMetrics</span>, Capture and analyse real-time data from your production to deliver actionable insights to drive the decisions that matter.
+              <div
+                className="absolute -left-4 top-0 w-1 h-full rounded-full"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, var(--color-primary), var(--color-accent))",
+                }}
+              ></div>
+              <p
+                className="text-base lg:text-lg leading-relaxed font-medium pl-6"
+                style={{ color: "var(--color-text-primary)" }}
+              >
+                <span
+                  className="font-bold"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  Use data
+                </span>{" "}
+                to increase yield, make production faster, and cheaper with
+                fewer resources than ever before.
+                <span
+                  className="font-semibold"
+                  style={{ color: "var(--color-text-secondary)" }}
+                >
+                  {" "}
+                  ReFlowMetrics
+                </span>
+                , Capture and analyse real-time data from your production to
+                deliver actionable insights to drive the decisions that matter.
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               ref={paragraph2Ref}
               className="relative"
               whileHover={{ x: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-300 to-blue-500 rounded-full"></div>
-              <p className="text-base lg:text-lg text-gray-800 leading-relaxed font-medium pl-6">
-                <span className="text-blue-600 font-bold">No expensive integrators</span>, no custom development, no physical configuration. 
-                <span className="text-blue-700 font-semibold"> Finally, the production monitoring and analytics platform you deserve.</span>
+              <div
+                className="absolute -left-4 top-0 w-1 h-full rounded-full"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, var(--color-accent), var(--color-primary))",
+                }}
+              ></div>
+              <p
+                className="text-base lg:text-lg leading-relaxed font-medium pl-6"
+                style={{ color: "var(--color-text-primary)" }}
+              >
+                <span
+                  className="font-bold"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  No expensive integrators
+                </span>
+                , no custom development, no physical configuration.
+                <span
+                  className="font-semibold"
+                  style={{ color: "var(--color-text-secondary)" }}
+                >
+                  {" "}
+                  Finally, the production monitoring and analytics platform you
+                  deserve.
+                </span>
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="grid grid-cols-2 gap-4 mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center space-x-3 bg-blue-50 p-3 rounded-lg">
-                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <div
+                className="flex items-center space-x-3 p-3 rounded-lg"
+                style={{ backgroundColor: "var(--color-surface-muted)" }}
+              >
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: "var(--color-primary)" }}
+                >
+                  <svg
+                    className="w-4 h-4"
+                    style={{ color: "var(--color-text-inverse)" }}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <span className="text-sm font-semibold text-blue-700">Real-time Analytics</span>
+                <span
+                  className="text-sm font-semibold"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  Real-time Analytics
+                </span>
               </div>
-              <div className="flex items-center space-x-3 bg-blue-50 p-3 rounded-lg">
-                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <div
+                className="flex items-center space-x-3 p-3 rounded-lg"
+                style={{ backgroundColor: "var(--color-surface-muted)" }}
+              >
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: "var(--color-primary)" }}
+                >
+                  <svg
+                    className="w-4 h-4"
+                    style={{ color: "var(--color-text-inverse)" }}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
                     <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                   </svg>
                 </div>
-                <span className="text-sm font-semibold text-blue-700">AI-Powered</span>
+                <span
+                  className="text-sm font-semibold"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  AI-Powered
+                </span>
               </div>
             </motion.div>
-            <motion.button 
+            <motion.button
               ref={buttonRef}
-              className="group relative inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-bold text-base uppercase tracking-wide hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
+              className="group relative inline-flex items-center px-6 py-3 rounded-xl font-bold text-base uppercase tracking-wide transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
+              style={{
+                background:
+                  "linear-gradient(to right, var(--color-primary), var(--color-primary-hover))",
+                color: "var(--color-text-inverse)",
+              }}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <span className="relative z-10">View More</span>
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              <motion.div
+                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  background:
+                    "linear-gradient(to right, var(--color-primary-hover), var(--color-primary))",
+                }}
                 whileHover={{ scale: 1.05 }}
               />
-              <motion.svg 
+              <motion.svg
                 className="w-4 h-4 ml-2 relative z-10"
-                fill="none" 
-                stroke="currentColor" 
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </motion.svg>
             </motion.button>
           </motion.div>
-          <motion.div 
+          <motion.div
             ref={videoRef}
             className="relative w-full lg:col-span-7"
             initial={{ opacity: 0, y: 50 }}
@@ -262,13 +373,14 @@ export default function Services() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div 
+            <div
               ref={videoContainerRef}
               className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-black border-2 border-gray-700/50 group"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               style={{
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+                boxShadow:
+                  "0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)",
               }}
             >
               <video
@@ -288,8 +400,12 @@ export default function Services() {
                   <div className="relative">
                     <div className="w-16 h-16 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
+                      <svg
+                        className="w-6 h-6 text-blue-500"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
                   </div>
@@ -297,11 +413,14 @@ export default function Services() {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20 pointer-events-none"></div>
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
-                   style={{ 
-                     background: 'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent)',
-                     animation: 'shimmer 3s infinite'
-                   }}></div>
+              <div
+                className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent)",
+                  animation: "shimmer 3s infinite",
+                }}
+              ></div>
               <AnimatePresence>
                 {(showControls || isHovered) && (
                   <motion.div
@@ -311,7 +430,7 @@ export default function Services() {
                     transition={{ duration: 0.3 }}
                     className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"
                   >
-                    <div 
+                    <div
                       ref={progressBarRef}
                       className="w-full h-1.5 bg-white/20 rounded-full mb-4 cursor-pointer group/progress"
                       onClick={handleProgressClick}
@@ -335,19 +454,30 @@ export default function Services() {
                           whileTap={{ scale: 0.9 }}
                         >
                           {isPlaying ? (
-                            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            <svg
+                              className="w-6 h-6 text-white"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
                             </svg>
                           ) : (
-                            <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M8 5v14l11-7z"/>
+                            <svg
+                              className="w-6 h-6 text-white ml-0.5"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M8 5v14l11-7z" />
                             </svg>
                           )}
                         </motion.button>
                         <div className="text-white text-sm font-medium bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-lg">
                           <span>
                             {Math.floor(currentTime / 60)}:
-                            {String(Math.floor(currentTime % 60)).padStart(2, '0')}
+                            {String(Math.floor(currentTime % 60)).padStart(
+                              2,
+                              "0"
+                            )}
                           </span>
                         </div>
                       </div>
@@ -358,8 +488,18 @@ export default function Services() {
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
                         >
-                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                          <svg
+                            className="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                            />
                           </svg>
                         </motion.button>
                       </div>
@@ -378,7 +518,10 @@ export default function Services() {
                     <motion.div
                       className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center border-2 border-white/30 shadow-2xl cursor-pointer pointer-events-auto"
                       onClick={togglePlay}
-                      whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
+                      whileHover={{
+                        scale: 1.1,
+                        backgroundColor: "rgba(255, 255, 255, 0.3)",
+                      }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -390,14 +533,16 @@ export default function Services() {
                         animate={{ x: [0, 2, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
                       >
-                        <path d="M8 5v14l11-7z"/>
+                        <path d="M8 5v14l11-7z" />
                       </motion.svg>
                     </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
               <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10">
-                <span className="text-white text-xs font-semibold uppercase tracking-wide">Demo Video</span>
+                <span className="text-white text-xs font-semibold uppercase tracking-wide">
+                  Demo Video
+                </span>
               </div>
             </div>
           </motion.div>

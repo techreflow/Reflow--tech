@@ -19,9 +19,11 @@ const poppinsBold = Poppins({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  metadataBase: new URL('https://reflowtech.in'),
-  title: "Reflow Tech - AI-Powered Manufacturing Performance Solutions for Pharma Industries",
-  description: "Achieve Zero Downtime, Zero Injuries, and Zero Financial Losses with Reflow's Cutting-Edge AI Control Systems for Pharmaceutical Manufacturing. Advanced AI devices for increasing manufacturing performance.",
+  metadataBase: new URL("https://reflowtech.in"),
+  title:
+    "Reflow Tech - AI-Powered Manufacturing Performance Solutions for Pharma Industries",
+  description:
+    "Achieve Zero Downtime, Zero Injuries, and Zero Financial Losses with Reflow's Cutting-Edge AI Control Systems for Pharmaceutical Manufacturing. Advanced AI devices for increasing manufacturing performance.",
   keywords: [
     "AI manufacturing solutions",
     "pharmaceutical industry AI",
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     "manufacturing AI devices",
     "industrial AI solutions",
     "pharmaceutical manufacturing AI",
-    "smart manufacturing"
+    "smart manufacturing",
   ],
   authors: [{ name: "Reflow Tech" }],
   creator: "Reflow Tech",
@@ -53,7 +55,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://reflowtech.in",
     title: "Reflow Tech - AI-Powered Manufacturing Performance Solutions",
-    description: "Achieve Zero Downtime, Zero Injuries, and Zero Financial Losses with Reflow's Cutting-Edge AI Control Systems for Pharmaceutical Manufacturing.",
+    description:
+      "Achieve Zero Downtime, Zero Injuries, and Zero Financial Losses with Reflow's Cutting-Edge AI Control Systems for Pharmaceutical Manufacturing.",
     siteName: "Reflow Tech",
     images: [
       {
@@ -67,7 +70,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Reflow Tech - AI-Powered Manufacturing Performance Solutions",
-    description: "Achieve Zero Downtime, Zero Injuries, and Zero Financial Losses with Reflow's Cutting-Edge AI Control Systems for Pharmaceutical Manufacturing.",
+    description:
+      "Achieve Zero Downtime, Zero Injuries, and Zero Financial Losses with Reflow's Cutting-Edge AI Control Systems for Pharmaceutical Manufacturing.",
     images: ["/translogo.png"],
   },
   alternates: {
@@ -88,14 +92,19 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppinsBold.variable} antialiased bg-white`}
-        style={{ backgroundColor: '#ffffff' }}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppinsBold.variable} antialiased`}
+        style={{ backgroundColor: "var(--color-background)" }}
         suppressHydrationWarning
       >
         <AuthProvider>
           <PageLoader />
           <Header />
-          <main className="pt-20 bg-white">{children}</main>
+          <main
+            className="pt-20"
+            style={{ backgroundColor: "var(--color-background)" }}
+          >
+            {children}
+          </main>
         </AuthProvider>
       </body>
     </html>

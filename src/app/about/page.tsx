@@ -1,57 +1,76 @@
-'use client';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Footer from '../components/Footer';
-import { FaIndustry, FaChartLine, FaCog, FaRocket, FaAward, FaUsers } from 'react-icons/fa';
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Footer from "../components/Footer";
+import {
+  FaIndustry,
+  FaChartLine,
+  FaCog,
+  FaRocket,
+  FaAward,
+  FaUsers,
+} from "react-icons/fa";
 export default function AboutPage() {
   const stats = [
-    { number: '2022', label: 'Founded', icon: FaRocket },
-    { number: '25+ Devices', label: 'Operational In-Fieldit', icon: FaIndustry },
-    { number: '2+ Years', label: 'In-field Deplyment', icon: FaAward },
+    { number: "2022", label: "Founded", icon: FaRocket },
+    {
+      number: "25+ Devices",
+      label: "Operational In-Fieldit",
+      icon: FaIndustry,
+    },
+    { number: "2+ Years", label: "In-field Deplyment", icon: FaAward },
   ];
   const values = [
     {
       icon: FaChartLine,
-      title: 'Data-Driven',
-      description: 'We transform raw data into actionable insights that drive operational excellence.'
+      title: "Data-Driven",
+      description:
+        "We transform raw data into actionable insights that drive operational excellence.",
     },
     {
       icon: FaCog,
-      title: 'Innovation',
-      description: 'Cutting-edge technology solutions that keep you ahead of the competition.'
+      title: "Innovation",
+      description:
+        "Cutting-edge technology solutions that keep you ahead of the competition.",
     },
     {
       icon: FaUsers,
-      title: 'Partnership',
-      description: 'We work closely with our clients to understand and solve their unique challenges.'
-    }
+      title: "Partnership",
+      description:
+        "We work closely with our clients to understand and solve their unique challenges.",
+    },
   ];
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden">
-      <motion.section 
+    <div
+      className="min-h-screen relative overflow-hidden"
+      style={{ backgroundColor: "var(--color-background)" }}
+    >
+      <motion.section
         className="pt-24 pb-16 relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         <div className="absolute inset-0">
-          <motion.div 
-            className="absolute top-20 right-20 w-[600px] h-[600px] bg-gradient-to-br from-blue-400/30 to-blue-600/30 rounded-full blur-3xl"
-            animate={{ 
+          <motion.div
+            className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full blur-3xl opacity-15"
+            style={{ backgroundColor: "var(--color-primary)" }}
+            animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 90, 0],
               x: [0, 50, 0],
-              y: [0, 30, 0]
+              y: [0, 30, 0],
             }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           />
-          <motion.div 
-            className="absolute bottom-20 left-20 w-[700px] h-[700px] bg-gradient-to-br from-blue-300/20 to-blue-500/20 rounded-full blur-3xl"
-            animate={{ 
+          <motion.div
+            className="absolute bottom-20 left-20 w-[700px] h-[700px] rounded-full blur-3xl opacity-10"
+            style={{ backgroundColor: "var(--color-accent)" }}
+            animate={{
               scale: [1.2, 1, 1.2],
               rotate: [0, -90, 0],
               x: [0, -30, 0],
-              y: [0, -50, 0]
+              y: [0, -50, 0],
             }}
             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -64,8 +83,13 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative w-full lg:w-[45%] flex justify-center"
             >
-              <motion.div 
-                className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-blue-100 relative overflow-hidden w-full"
+              <motion.div
+                className="rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden w-full"
+                style={{
+                  backgroundColor: "var(--color-surface)",
+                  borderColor: "var(--color-border-subtle)",
+                  border: "1px solid",
+                }}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -74,14 +98,18 @@ export default function AboutPage() {
                   viewBox="0 0 100 100"
                   initial={{ rotate: 0 }}
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                 >
                   <path
                     d="M20,50 Q30,20 50,50 T80,50"
                     stroke="currentColor"
                     strokeWidth="2"
                     fill="none"
-                    className="text-blue-600"
+                    style={{ color: "var(--color-primary)" }}
                   />
                 </motion.svg>
                 <motion.svg
@@ -89,24 +117,40 @@ export default function AboutPage() {
                   viewBox="0 0 100 100"
                   initial={{ rotate: 0 }}
                   animate={{ rotate: -360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 25,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                 >
                   <path
                     d="M20,50 Q30,80 50,50 T80,50"
                     stroke="currentColor"
                     strokeWidth="2"
                     fill="none"
-                    className="text-blue-600"
+                    style={{ color: "var(--color-primary)" }}
                   />
                 </motion.svg>
-                <motion.h1 
+                <motion.h1
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 relative z-10 leading-tight"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <div className="text-gray-900">We Automate</div>
-                  <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 bg-clip-text text-transparent" style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}>
+                  <div style={{ color: "var(--color-text-primary)" }}>
+                    We Automate
+                  </div>
+                  <div
+                    style={{
+                      background:
+                        "linear-gradient(to right, var(--color-primary), var(--color-accent))",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                      wordBreak: "keep-all",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
                     Industries
                   </div>
                 </motion.h1>
@@ -124,45 +168,124 @@ export default function AboutPage() {
                 transition={{ delay: 0.5 }}
               >
                 <motion.div
-                  className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full text-sm font-semibold mb-4 lg:mb-6 shadow-lg"
+                  className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-4 lg:mb-6 shadow-lg"
+                  style={{
+                    background:
+                      "linear-gradient(to right, var(--color-primary), var(--color-accent))",
+                    color: "var(--color-text-inverse)",
+                  }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
+                  <span
+                    className="w-2 h-2 rounded-full mr-2 animate-pulse"
+                    style={{ backgroundColor: "var(--color-text-inverse)" }}
+                  ></span>
                   About Us
                 </motion.div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 lg:mb-6 break-words">
-                  <span className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 bg-clip-text text-transparent">
-                    About Us
-                  </span>
+                <h2
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 lg:mb-6 break-words"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  About Us
                 </h2>
               </motion.div>
               <motion.div
-                className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl border border-blue-100"
+                className="rounded-3xl p-6 sm:p-8 shadow-xl"
+                style={{
+                  backgroundColor: "var(--color-surface)",
+                  borderColor: "var(--color-border-subtle)",
+                  border: "1px solid",
+                }}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                whileHover={{ scale: 1.01, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.2)" }}
+                whileHover={{
+                  scale: 1.01,
+                  boxShadow: "0 20px 40px rgba(0, 163, 255, 0.2)",
+                }}
               >
-                <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-4 lg:mb-6 break-words">
-                  In the age of <span className="font-bold text-blue-600">Industry 4.0</span>, staying ahead requires a competitive edge. Since our founding in <span className="font-bold text-blue-600">2022</span>, We at ReFlow Technologies have been at the forefront of driving digital transformation in factories.
+                <p
+                  className="text-base sm:text-lg lg:text-xl leading-relaxed mb-4 lg:mb-6 break-words"
+                  style={{ color: "var(--color-text-secondary)" }}
+                >
+                  In the age of{" "}
+                  <span
+                    className="font-bold"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    Industry 4.0
+                  </span>
+                  , staying ahead requires a competitive edge. Since our
+                  founding in{" "}
+                  <span
+                    className="font-bold"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    2022
+                  </span>
+                  , We at ReFlow Technologies have been at the forefront of
+                  driving digital transformation in factories.
                 </p>
-                <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-4 lg:mb-6 break-words">
-                  We specialize in the automated capture, transformation, and contextualization of process data, empowering businesses to achieve <span className="font-bold text-blue-600">zero downtime</span>, <span className="font-bold text-blue-600">zero resource wastage</span>, and <span className="font-bold text-blue-600">maximum efficiency</span>.
+                <p
+                  className="text-base sm:text-lg lg:text-xl leading-relaxed mb-4 lg:mb-6 break-words"
+                  style={{ color: "var(--color-text-secondary)" }}
+                >
+                  We specialize in the automated capture, transformation, and
+                  contextualization of process data, empowering businesses to
+                  achieve{" "}
+                  <span
+                    className="font-bold"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    zero downtime
+                  </span>
+                  ,{" "}
+                  <span
+                    className="font-bold"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    zero resource wastage
+                  </span>
+                  , and{" "}
+                  <span
+                    className="font-bold"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    maximum efficiency
+                  </span>
+                  .
                 </p>
                 <motion.div
-                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 p-6 rounded-2xl shadow-lg relative overflow-hidden"
+                  className="p-6 rounded-2xl shadow-lg relative overflow-hidden"
+                  style={{
+                    background:
+                      "linear-gradient(to right, var(--color-primary), var(--color-primary-hover))",
+                  }}
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.7 }}
                   whileHover={{ scale: 1.02 }}
                 >
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent"
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent)",
+                    }}
                     animate={{ x: [-100, 400] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                   />
-                  <p className="text-xl font-bold text-white relative z-10">
-                    Our vision is a future where every factory operates at peak performance, setting new standards in operational excellence.
+                  <p
+                    className="text-xl font-bold relative z-10"
+                    style={{ color: "var(--color-text-inverse)" }}
+                  >
+                    Our vision is a future where every factory operates at peak
+                    performance, setting new standards in operational
+                    excellence.
                   </p>
                 </motion.div>
               </motion.div>
@@ -173,8 +296,16 @@ export default function AboutPage() {
               >
                 <Link href="/contact">
                   <motion.button
-                    className="w-full lg:w-auto bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300"
-                    whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
+                    className="w-full lg:w-auto px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300"
+                    style={{
+                      background:
+                        "linear-gradient(to right, var(--color-primary), var(--color-primary-hover))",
+                      color: "var(--color-text-inverse)",
+                    }}
+                    whileHover={{
+                      scale: 1.05,
+                      boxShadow: "0 20px 40px rgba(0, 163, 255, 0.4)",
+                    }}
                     whileTap={{ scale: 0.95 }}
                   >
                     Contact Us
@@ -185,7 +316,7 @@ export default function AboutPage() {
           </div>
         </div>
       </motion.section>
-      <motion.section 
+      <motion.section
         className="py-16 relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -199,7 +330,12 @@ export default function AboutPage() {
               return (
                 <motion.div
                   key={idx}
-                  className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-blue-100 text-center"
+                  className="rounded-3xl p-8 shadow-xl text-center"
+                  style={{
+                    backgroundColor: "var(--color-surface)",
+                    borderColor: "var(--color-border-subtle)",
+                    border: "1px solid",
+                  }}
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
@@ -207,14 +343,22 @@ export default function AboutPage() {
                   whileHover={{ scale: 1.05, y: -10 }}
                 >
                   <motion.div
-                    className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                    className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-hover))",
+                    }}
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <IconComponent className="text-white text-3xl" />
+                    <IconComponent
+                      className="text-3xl"
+                      style={{ color: "var(--color-text-inverse)" }}
+                    />
                   </motion.div>
                   <motion.h3
-                    className="text-4xl font-black text-gray-900 mb-2"
+                    className="text-4xl font-black mb-2"
+                    style={{ color: "var(--color-text-primary)" }}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
@@ -222,14 +366,19 @@ export default function AboutPage() {
                   >
                     {stat.number}
                   </motion.h3>
-                  <p className="text-lg font-semibold text-gray-600">{stat.label}</p>
+                  <p
+                    className="text-lg font-semibold"
+                    style={{ color: "var(--color-text-secondary)" }}
+                  >
+                    {stat.label}
+                  </p>
                 </motion.div>
               );
             })}
           </div>
         </div>
       </motion.section>
-      <motion.section 
+      <motion.section
         className="py-16 pb-24 relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -245,12 +394,24 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl lg:text-6xl font-black mb-6">
-              <span className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 bg-clip-text text-transparent">
+              <span
+                style={{
+                  background:
+                    "linear-gradient(to right, var(--color-primary), var(--color-accent))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
                 Our Core Values
               </span>
             </h2>
             <motion.div
-              className="h-1.5 w-40 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto"
+              className="h-1.5 w-40 rounded-full mx-auto"
+              style={{
+                background:
+                  "linear-gradient(to right, var(--color-primary), var(--color-accent))",
+              }}
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
@@ -263,7 +424,12 @@ export default function AboutPage() {
               return (
                 <motion.div
                   key={idx}
-                  className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-blue-100 relative overflow-hidden group"
+                  className="rounded-3xl p-8 shadow-xl relative overflow-hidden group"
+                  style={{
+                    backgroundColor: "var(--color-surface)",
+                    borderColor: "var(--color-border-subtle)",
+                    border: "1px solid",
+                  }}
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
@@ -271,21 +437,42 @@ export default function AboutPage() {
                   whileHover={{ scale: 1.05, y: -10 }}
                 >
                   <motion.div
-                    className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-transparent rounded-full blur-2xl"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+                    className="absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, var(--color-primary), transparent)",
+                      opacity: 0.1,
+                    }}
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.05, 0.15, 0.05],
+                    }}
                     transition={{ duration: 3, repeat: Infinity }}
                   />
                   <motion.div
-                    className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg relative z-10"
+                    className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-lg relative z-10"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-hover))",
+                    }}
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <IconComponent className="text-white text-2xl" />
+                    <IconComponent
+                      className="text-2xl"
+                      style={{ color: "var(--color-text-inverse)" }}
+                    />
                   </motion.div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-4 relative z-10">
+                  <h3
+                    className="text-2xl font-black mb-4 relative z-10"
+                    style={{ color: "var(--color-text-primary)" }}
+                  >
                     {value.title}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed relative z-10">
+                  <p
+                    className="leading-relaxed relative z-10"
+                    style={{ color: "var(--color-text-secondary)" }}
+                  >
                     {value.description}
                   </p>
                 </motion.div>

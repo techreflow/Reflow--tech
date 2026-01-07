@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Footer from "../components/Footer";
 import {
   FaIndustry,
@@ -375,6 +376,188 @@ export default function AboutPage() {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </motion.section>
+      <motion.section
+        className="py-12 sm:py-16 pb-16 sm:pb-24 relative"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="absolute inset-0">
+          <div
+            className="absolute top-20 right-20 w-[500px] h-[500px] rounded-full blur-3xl opacity-10"
+            style={{ backgroundColor: "var(--color-primary)" }}
+          />
+          <div
+            className="absolute bottom-20 left-20 w-[600px] h-[600px] rounded-full blur-3xl opacity-10"
+            style={{ backgroundColor: "var(--color-accent)" }}
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            className="text-center mb-12 sm:mb-16"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 break-words">
+              <span
+                style={{
+                  background:
+                    "linear-gradient(to right, var(--color-primary), var(--color-accent))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Our Founders
+              </span>
+            </h2>
+            <div
+              className="h-1.5 w-32 sm:w-40 rounded-full mx-auto"
+              style={{
+                background:
+                  "linear-gradient(to right, var(--color-primary), var(--color-accent))",
+              }}
+            />
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
+            <motion.div
+              className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden group"
+              style={{
+                backgroundColor: "var(--color-surface)",
+                borderColor: "var(--color-border-subtle)",
+                border: "1px solid",
+              }}
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div
+                className="absolute top-0 right-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full blur-2xl"
+                style={{
+                  background:
+                    "linear-gradient(to bottom right, var(--color-primary), transparent)",
+                  opacity: 0.1,
+                }}
+              />
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="relative mb-6">
+                  <div
+                    className="absolute inset-0 rounded-full blur-xl"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, var(--color-primary), var(--color-accent))",
+                      opacity: 0.3,
+                    }}
+                  />
+                  <div
+                    className="relative rounded-full p-1"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, var(--color-primary), var(--color-accent))",
+                    }}
+                  >
+                    <div
+                      className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden"
+                      style={{ backgroundColor: "var(--color-surface)" }}
+                    >
+                      <Image
+                        src="/founder21.jpeg"
+                        alt="Chakreesh"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 128px, 160px"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <h3
+                  className="text-2xl sm:text-3xl font-black mb-2"
+                  style={{ color: "var(--color-text-primary)" }}
+                >
+                  Chakreesh
+                </h3>
+                <p
+                  className="text-base sm:text-lg font-semibold"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  Co-Founder
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden group"
+              style={{
+                backgroundColor: "var(--color-surface)",
+                borderColor: "var(--color-border-subtle)",
+                border: "1px solid",
+              }}
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div
+                className="absolute top-0 right-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full blur-2xl"
+                style={{
+                  background:
+                    "linear-gradient(to bottom right, var(--color-accent), transparent)",
+                  opacity: 0.1,
+                }}
+              />
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="relative mb-6">
+                  <div
+                    className="absolute inset-0 rounded-full blur-xl"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, var(--color-primary), var(--color-accent))",
+                      opacity: 0.3,
+                    }}
+                  />
+                  <div
+                    className="relative rounded-full p-1"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, var(--color-primary), var(--color-accent))",
+                    }}
+                  >
+                    <div
+                      className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden"
+                      style={{ backgroundColor: "var(--color-surface)" }}
+                    >
+                      <Image
+                        src="/founder3.jpeg"
+                        alt="Raj Kumar"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 128px, 160px"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <h3
+                  className="text-2xl sm:text-3xl font-black mb-2"
+                  style={{ color: "var(--color-text-primary)" }}
+                >
+                  Raj Kumar
+                </h3>
+                <p
+                  className="text-base sm:text-lg font-semibold"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  Co-Founder
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </motion.section>

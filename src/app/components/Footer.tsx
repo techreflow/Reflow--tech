@@ -28,7 +28,7 @@ export default function Footer() {
         ></div>
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="space-y-8">
             <div className="flex items-center">
               <div className="transition-all duration-300 hover:scale-105">
@@ -294,6 +294,61 @@ export default function Footer() {
                   }}
                 >
                   Reflow Console
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              className="text-xl font-bold mb-6 flex items-center"
+              style={{ color: "var(--color-text-primary)" }}
+            >
+              Applications
+            </h4>
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href="/pharma"
+                  className="transition-all duration-300 text-base font-medium hover:translate-x-2 block"
+                  style={{ color: "var(--color-text-secondary)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "var(--color-primary)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "var(--color-text-secondary)";
+                  }}
+                >
+                  For Pharma
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/brewery"
+                  className="transition-all duration-300 text-base font-medium hover:translate-x-2 block"
+                  style={{ color: "var(--color-text-secondary)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "var(--color-primary)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "var(--color-text-secondary)";
+                  }}
+                >
+                  For Breweries
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/ev"
+                  className="transition-all duration-300 text-base font-medium hover:translate-x-2 block"
+                  style={{ color: "var(--color-text-secondary)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "var(--color-primary)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "var(--color-text-secondary)";
+                  }}
+                >
+                  For EV Manufacturers
                 </a>
               </li>
             </ul>

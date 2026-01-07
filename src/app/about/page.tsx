@@ -68,15 +68,13 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="relative w-full lg:w-[45%] flex justify-center order-2 lg:order-1"
             >
-              <motion.div
+              <div
                 className="rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl relative overflow-hidden w-full max-w-md lg:max-w-none"
                 style={{
                   backgroundColor: "var(--color-surface)",
                   borderColor: "var(--color-border-subtle)",
                   border: "1px solid",
                 }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
               >
                 <motion.svg
                   className="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 opacity-20"
@@ -136,7 +134,7 @@ export default function AboutPage() {
                     Industries
                   </div>
                 </motion.h1>
-              </motion.div>
+              </div>
             </motion.div>
             <motion.div
               initial={{ x: 50, opacity: 0 }}
@@ -213,14 +211,12 @@ export default function AboutPage() {
                   </span>
                   .
                 </p>
-                <motion.div
+                <div
                   className="p-6 rounded-2xl shadow-lg"
                   style={{
                     background:
                       "linear-gradient(to right, var(--color-primary), var(--color-primary-hover))",
                   }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
                 >
                   <p
                     className="text-xl font-bold"
@@ -230,7 +226,7 @@ export default function AboutPage() {
                     performance, setting new standards in operational
                     excellence.
                   </p>
-                </motion.div>
+                </div>
               </motion.div>
             </motion.div>
           </div>
@@ -260,22 +256,19 @@ export default function AboutPage() {
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
                 >
-                  <motion.div
+                  <div
                     className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg"
                     style={{
                       background:
                         "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-hover))",
                     }}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
                   >
                     <IconComponent
                       className="text-2xl sm:text-3xl"
                       style={{ color: "var(--color-text-inverse)" }}
                     />
-                  </motion.div>
+                  </div>
                   <h3
                     className="text-3xl sm:text-4xl font-black mb-2"
                     style={{ color: "var(--color-text-primary)" }}
@@ -346,7 +339,6 @@ export default function AboutPage() {
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
                 >
                   <div
                     className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 rounded-full blur-2xl"
@@ -356,20 +348,18 @@ export default function AboutPage() {
                       opacity: 0.1,
                     }}
                   />
-                  <motion.div
+                  <div
                     className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg relative z-10"
                     style={{
                       background:
                         "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-hover))",
                     }}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
                   >
                     <IconComponent
                       className="text-xl sm:text-2xl"
                       style={{ color: "var(--color-text-inverse)" }}
                     />
-                  </motion.div>
+                  </div>
                   <h3
                     className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 relative z-10 break-words"
                     style={{ color: "var(--color-text-primary)" }}

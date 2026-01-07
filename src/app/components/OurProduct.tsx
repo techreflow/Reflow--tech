@@ -106,20 +106,18 @@ export default function OurProduct() {
         />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.h2
+        <h2
           ref={titleRef}
           className="text-4xl lg:text-5xl font-black text-center mb-12"
           style={{
             fontFamily: "var(--font-poppins-bold)",
             color: "var(--color-primary)",
           }}
-          whileHover={{ scale: 1.02 }}
-          transition={{ type: "spring", stiffness: 300 }}
         >
           Our Product
-        </motion.h2>
+        </h2>
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <motion.div
+          <div
             ref={modelContainerRef}
             className="relative w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl"
             style={{
@@ -128,11 +126,9 @@ export default function OurProduct() {
               borderColor: "var(--color-border-subtle)",
               border: "2px solid",
             }}
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
           >
             <ProductImageSwitcher />
-          </motion.div>
+          </div>
           <motion.div
             className="space-y-6"
             initial={{ opacity: 0, x: 50 }}
@@ -140,12 +136,7 @@ export default function OurProduct() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <motion.div
-              ref={paragraph1Ref}
-              className="relative"
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
+            <div ref={paragraph1Ref} className="relative">
               <div
                 className="absolute -left-4 top-0 w-1 h-full rounded-full"
                 style={{
@@ -164,13 +155,8 @@ export default function OurProduct() {
                 reports, and three months of secure data storage, enabling
                 continuous improvement and efficiency.
               </p>
-            </motion.div>
-            <motion.div
-              ref={paragraph2Ref}
-              className="relative"
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
+            </div>
+            <div ref={paragraph2Ref} className="relative">
               <div
                 className="absolute -left-4 top-0 w-1 h-full rounded-full"
                 style={{
@@ -190,19 +176,16 @@ export default function OurProduct() {
                 equipment and enable actionable machine insights in a matter of
                 minutes.
               </p>
-            </motion.div>
-            <motion.button
+            </div>
+            <button
               ref={buttonRef}
-              className="group relative inline-flex items-center px-8 py-3 rounded-xl font-bold text-base uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
+              className="group relative inline-flex items-center px-8 py-3 rounded-xl font-bold text-base uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl"
               style={{
                 backgroundColor: "var(--color-surface)",
                 borderColor: "var(--color-primary)",
                 border: "2px solid",
                 color: "var(--color-primary)",
               }}
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = "var(--color-primary)";
                 e.currentTarget.style.color = "var(--color-text-inverse)";
@@ -213,7 +196,7 @@ export default function OurProduct() {
               }}
             >
               <span className="relative z-10">View More</span>
-            </motion.button>
+            </button>
           </motion.div>
         </div>
       </div>

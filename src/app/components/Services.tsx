@@ -187,31 +187,21 @@ export default function Services() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <motion.h2
+            <h2
               ref={titleRef}
               className="text-4xl lg:text-5xl font-black leading-tight mb-4"
               style={{
                 fontFamily: "var(--font-poppins-bold)",
                 color: "var(--color-primary)",
               }}
-              whileHover={{ scale: 1.05, rotate: 1 }}
-              transition={{ type: "spring", stiffness: 300 }}
             >
               <span className="block">Services</span>
-              <motion.div
+              <div
                 className="w-24 h-1 rounded-full mt-4"
                 style={{ backgroundColor: "var(--color-primary)" }}
-                initial={{ width: 0 }}
-                whileInView={{ width: "6rem" }}
-                transition={{ delay: 0.5, duration: 0.8 }}
               />
-            </motion.h2>
-            <motion.div
-              ref={paragraph1Ref}
-              className="relative"
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
+            </h2>
+            <div ref={paragraph1Ref} className="relative">
               <div
                 className="absolute -left-4 top-0 w-1 h-full rounded-full"
                 style={{
@@ -241,13 +231,8 @@ export default function Services() {
                 , Capture and analyse real-time data from your production to
                 deliver actionable insights to drive the decisions that matter.
               </p>
-            </motion.div>
-            <motion.div
-              ref={paragraph2Ref}
-              className="relative"
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
+            </div>
+            <div ref={paragraph2Ref} className="relative">
               <div
                 className="absolute -left-4 top-0 w-1 h-full rounded-full"
                 style={{
@@ -275,7 +260,7 @@ export default function Services() {
                   deserve.
                 </span>
               </p>
-            </motion.div>
+            </div>
             <motion.div
               className="grid grid-cols-2 gap-4 mb-6"
               initial={{ opacity: 0, y: 20 }}
@@ -332,43 +317,6 @@ export default function Services() {
                 </span>
               </div>
             </motion.div>
-            <motion.button
-              ref={buttonRef}
-              className="group relative inline-flex items-center px-6 py-3 rounded-xl font-bold text-base uppercase tracking-wide transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
-              style={{
-                background:
-                  "linear-gradient(to right, var(--color-primary), var(--color-primary-hover))",
-                color: "var(--color-text-inverse)",
-              }}
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <span className="relative z-10">View More</span>
-              <motion.div
-                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  background:
-                    "linear-gradient(to right, var(--color-primary-hover), var(--color-primary))",
-                }}
-                whileHover={{ scale: 1.05 }}
-              />
-              <motion.svg
-                className="w-4 h-4 ml-2 relative z-10"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </motion.svg>
-            </motion.button>
           </motion.div>
           <motion.div
             ref={videoRef}

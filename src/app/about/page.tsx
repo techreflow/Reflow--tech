@@ -536,7 +536,7 @@ export default function AboutPage() {
                     >
                       <Image
                         src="/founder3.jpeg"
-                        alt="Raj Kumar"
+                        alt="RajKumar"
                         fill
                         className="object-cover"
                         sizes="(max-width: 640px) 128px, 160px"
@@ -548,7 +548,7 @@ export default function AboutPage() {
                   className="text-2xl sm:text-3xl font-black mb-2"
                   style={{ color: "var(--color-text-primary)" }}
                 >
-                  Raj Kumar
+                  RajKumar
                 </h3>
                 <p
                   className="text-base sm:text-lg font-semibold"

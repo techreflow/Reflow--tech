@@ -1,6 +1,10 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+
+const MotionLink = motion(Link);
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const faqs = [
@@ -235,8 +239,9 @@ export default function FAQ() {
                 operations with cutting-edge IIoT solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button
-                  className="px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg"
+                <MotionLink
+                  href="/contact"
+                  className="px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg inline-block text-center"
                   style={{
                     backgroundColor: "var(--color-text-inverse)",
                     color: "var(--color-primary)",
@@ -255,9 +260,13 @@ export default function FAQ() {
                   }}
                 >
                   Contact Us
-                </motion.button>
-                <motion.button
-                  className="px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
+                </MotionLink>
+                <motion.a
+                  href="https://wa.me/917338732904"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Schedule a demo via WhatsApp"
+                  className="px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 inline-block text-center"
                   style={{
                     backgroundColor: "transparent",
                     borderColor: "var(--color-text-inverse)",
@@ -277,7 +286,7 @@ export default function FAQ() {
                   }}
                 >
                   Schedule a Demo
-                </motion.button>
+                </motion.a>
               </div>
             </div>
           </div>

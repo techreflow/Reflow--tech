@@ -67,13 +67,14 @@ export default function ProductsPage() {
                                 ref={addToRefs}
                                 className="bg-[var(--color-surface)] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-[var(--color-border-subtle)] group flex flex-col h-full"
                             >
-                                <div className="relative w-full h-64 overflow-hidden bg-[var(--color-surface-muted)] flex items-center justify-center">
+                                <div className="relative w-full h-48 overflow-hidden bg-[var(--color-surface-muted)] flex items-center justify-center p-4">
                                     {product.image ? (
                                         <Image
                                             src={product.image}
                                             alt={product.name}
-                                            fill
-                                            style={{ objectFit: "cover" }}
+                                            width={180}
+                                            height={180}
+                                            style={{ objectFit: "contain" }}
                                             className="group-hover:scale-105 transition-transform duration-500"
                                         />
                                     ) : (

@@ -124,9 +124,9 @@ export default function OurProduct() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div
             ref={modelContainerRef}
-            className="relative w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+            className="relative w-full h-[300px] lg:h-[350px] rounded-2xl overflow-hidden shadow-2xl"
             style={{
-              minHeight: "400px",
+              minHeight: "300px",
               backgroundColor: "var(--color-surface)",
               borderColor: "var(--color-border-subtle)",
               border: "2px solid",

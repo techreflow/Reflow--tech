@@ -7,8 +7,8 @@ const ProductImageSwitcher = () => {
       <Image 
         src="/producsts/alpha2.jpeg" 
         alt="ALPHA X Product" 
-        width={500} 
-        height={500} 
+        width={200} 
+        height={200} 
         className="object-contain"
         style={{ width: "auto", height: "auto" }}
         priority

@@ -9,7 +9,7 @@
 export default function LoginPage() {
   // Temporary redirect to external login page
   if (typeof window !== "undefined") {
-    window.location.href = "https://login.reflowtech.in/login";
+    window.location.href = "https://console.reflowtech.in/login";
     return null;
   }
 

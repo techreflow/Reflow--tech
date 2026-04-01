@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signupUser } from "@/lib/auth";
-export default function RegisterPage() {
+function OldRegisterPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -77,8 +77,8 @@ export default function RegisterPage() {
           (result.status === 400
             ? "Invalid registration data. Please check your information."
             : result.status === 409
-            ? "An account with this email already exists. Please login instead."
-            : "Registration failed. Please try again.");
+              ? "An account with this email already exists. Please login instead."
+              : "Registration failed. Please try again.");
         setError(errorMsg);
         console.error("Registration failed:", {
           status: result.status,
@@ -441,4 +441,14 @@ export default function RegisterPage() {
       </div>
     </div>
   );
+}
+
+export default function RegisterPage() {
+  // Temporary redirect to external login page
+  if (typeof window !== "undefined") {
+    window.location.href = "https://console.reflowtech.in/register";
+    return null;
+  }
+
+  return null;
 }
